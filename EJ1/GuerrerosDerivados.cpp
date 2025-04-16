@@ -10,16 +10,14 @@ void Barbaro :: recargaEnergia(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
         int nueva_furia = casteada->getFuria() * recuperacion;
         casteada->recargarFuria(nueva_furia);
-        delete(casteada);
     }
     else cout << "El arma debe ser de combate" << endl;
 }
     
 int Barbaro :: superAttack(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
-        int h = arma->habilidad();
-        int d = arma->definitiva();
-        delete(casteada);
+        int h = casteada->habilidad();
+        int d = casteada->definitiva();
         return h + d;
     }
     else {
@@ -35,6 +33,7 @@ void Barbaro :: increaseDefense() {
 }
 
 int Barbaro :: tanqueo(Armas& arma, int daño) {
+    if (daño == 0) return 0;
     if (dynamic_cast<ArmasCombate*>(&arma)) daño -= armadura * 0.1;
     else daño -= resistencia_magica * 0.05;
     return daño;
@@ -49,16 +48,14 @@ void Paladin :: recargaEnergia(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
         int nueva_furia = casteada->getFuria() * recuperacion;
         casteada->recargarFuria(nueva_furia);
-        delete(casteada);
     }
     else cout << "El arma debe ser de combate" << endl;
 }
 
 int Paladin :: superAttack(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
-        int h = arma->habilidad();
-        int d = arma->definitiva();
-        delete(casteada);
+        int h = casteada->habilidad();
+        int d = casteada->definitiva();
         return h + d;
     }
     else {
@@ -74,6 +71,7 @@ void Paladin :: increaseDefense() {
 }
 
 int Paladin :: tanqueo(Armas& arma, int daño) {
+    if (daño == 0) return 0;
     if (dynamic_cast<ArmasCombate*>(&arma)) daño -= armadura * 0.1;
     else daño -= resistencia_magica * 0.05;
     return daño;
@@ -88,16 +86,14 @@ void Caballero :: recargaEnergia(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
         int nueva_furia = casteada->getFuria() * recuperacion;
         casteada->recargarFuria(nueva_furia);
-        delete(casteada);
     }
     else cout << "El arma debe ser de combate" << endl;
 }
 
 int Caballero :: superAttack(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
-        int h = arma->habilidad();
-        int d = arma->definitiva();
-        delete(casteada);
+        int h = casteada->habilidad();
+        int d = casteada->definitiva();
         return h + d;
     }
     else {
@@ -113,6 +109,7 @@ void Caballero :: increaseDefense() {
 }
 
 int Caballero :: tanqueo(Armas& arma, int daño) {
+    if (daño == 0) return 0;
     if (dynamic_cast<ArmasCombate*>(&arma)) daño -= armadura * 0.1;
     else daño -= resistencia_magica * 0.05;
     return daño;
@@ -127,16 +124,14 @@ void Mercenario :: recargaEnergia(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
         int nueva_furia = casteada->getFuria() * recuperacion;
         casteada->recargarFuria(nueva_furia);
-        delete(casteada);
     }
     else cout << "El arma debe ser de combate" << endl;
 }
 
 int Mercenario :: superAttack(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
-        int h = arma->habilidad();
-        int d = arma->definitiva();
-        delete(casteada);
+        int h = casteada->habilidad();
+        int d = casteada->definitiva();
         return h + d;
     }
     else {
@@ -152,6 +147,7 @@ void Mercenario :: increaseDefense() {
 }
 
 int Mercenario :: tanqueo(Armas& arma, int daño) {
+    if (daño == 0) return 0;
     if (dynamic_cast<ArmasCombate*>(&arma)) daño -= armadura * 0.1;
     else daño -= resistencia_magica * 0.05;
     return daño;
@@ -166,16 +162,14 @@ void Gladiador :: recargaEnergia(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
         int nueva_furia = casteada->getFuria() * recuperacion;
         casteada->recargarFuria(nueva_furia);
-        delete(casteada);
     }
     else cout << "El arma debe ser de combate" << endl;
 }
 
 int Gladiador :: superAttack(unique_ptr<Armas>& arma) {
     if (ArmasCombate* casteada = dynamic_cast<ArmasCombate*>(arma.get())){
-        int h = arma->habilidad();
-        int d = arma->definitiva();
-        delete(casteada);
+        int h = casteada->habilidad();
+        int d = casteada->definitiva();
         return h + d;
     }
     else {
@@ -191,6 +185,7 @@ void Gladiador :: increaseDefense() {
 }
 
 int Gladiador :: tanqueo(Armas& arma, int daño) {
+    if (daño == 0) return 0;
     if (dynamic_cast<ArmasCombate*>(&arma)) daño -= armadura * 0.1;
     else daño -= resistencia_magica * 0.05;
     return daño;

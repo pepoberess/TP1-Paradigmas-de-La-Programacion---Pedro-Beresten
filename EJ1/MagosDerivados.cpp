@@ -15,16 +15,14 @@ void Hechicero :: recargaEnergia(unique_ptr<Armas>& arma) {
         if (casteada->getMana() < casteada->getManaMax() * 0.2) nueva_mana = casteada->getManaMax() * (recuperacion * 0.1);
         else nueva_mana = casteada->getMana() * recuperacion;
         casteada->recargarMana(nueva_mana);
-        delete(casteada);
     }
     else cout << "El arma debe ser mágica" << endl;
 }
 
 int Hechicero :: superAttack(unique_ptr<Armas>& arma) {
     if (ArmasMagicas* casteada = dynamic_cast<ArmasMagicas*>(arma.get())){
-        int h = arma->habilidad();
-        int d = arma->definitiva();
-        delete(casteada);
+        int h = casteada->habilidad();
+        int d = casteada->definitiva();
         return h + d;
     }
     else {
@@ -40,6 +38,7 @@ void Hechicero :: increaseDefense() {
 }
 
 int Hechicero :: tanqueo(Armas& arma, int daño) {
+    if (daño == 0) return 0;
     if (dynamic_cast<ArmasMagicas*>(&arma)) daño -= resistencia_magica * 0.05;
     else daño -= armadura * 0.1;
     return daño;
@@ -60,16 +59,14 @@ void Conjurador :: recargaEnergia(unique_ptr<Armas>& arma) {
         if (casteada->getMana() < casteada->getManaMax() * 0.2) nueva_mana = casteada->getManaMax() * (recuperacion * 0.1);
         else nueva_mana = casteada->getMana() * recuperacion;
         casteada->recargarMana(nueva_mana);
-        delete(casteada);
     }
     else cout << "El arma debe ser mágica" << endl;
 }
 
 int Conjurador :: superAttack(unique_ptr<Armas>& arma) {
     if (ArmasMagicas* casteada = dynamic_cast<ArmasMagicas*>(arma.get())){
-        int h = arma->habilidad();
-        int d = arma->definitiva();
-        delete(casteada);
+        int h = casteada->habilidad();
+        int d = casteada->definitiva();
         return h + d;
     }
     else {
@@ -85,6 +82,7 @@ void Conjurador :: increaseDefense() {
 }
 
 int Conjurador :: tanqueo(Armas& arma, int daño) {
+    if (daño == 0) return 0;
     if (dynamic_cast<ArmasMagicas*>(&arma)) daño -= resistencia_magica * 0.05;
     else daño -= armadura * 0.1;
     return daño;
@@ -105,16 +103,14 @@ void Brujo :: recargaEnergia(unique_ptr<Armas>& arma) {
         if (casteada->getMana() < casteada->getManaMax() * 0.2) nueva_mana = casteada->getManaMax() * (recuperacion * 0.1);
         else nueva_mana = casteada->getMana() * recuperacion;
         casteada->recargarMana(nueva_mana);
-        delete(casteada);
     }
     else cout << "El arma debe ser mágica" << endl;
 }
 
 int Brujo :: superAttack(unique_ptr<Armas>& arma) {
     if (ArmasMagicas* casteada = dynamic_cast<ArmasMagicas*>(arma.get())){
-        int h = arma->habilidad();
-        int d = arma->definitiva();
-        delete(casteada);
+        int h = casteada->habilidad();
+        int d = casteada->definitiva();
         return h + d;
     }
     else {
@@ -130,6 +126,7 @@ void Brujo :: increaseDefense() {
 }
 
 int Brujo :: tanqueo(Armas& arma, int daño) {
+    if (daño == 0) return 0;
     if (dynamic_cast<ArmasMagicas*>(&arma)) daño -= resistencia_magica * 0.05;
     else daño -= armadura * 0.1;
     return daño;
@@ -150,16 +147,14 @@ void Nigromante :: recargaEnergia(unique_ptr<Armas>& arma) {
         if (casteada->getMana() < casteada->getManaMax() * 0.2) nueva_mana = casteada->getManaMax() * (recuperacion * 0.1);
         else nueva_mana = casteada->getMana() * recuperacion;
         casteada->recargarMana(nueva_mana);
-        delete(casteada);
     }
     else cout << "El arma debe ser mágica" << endl;
 }
 
 int Nigromante :: superAttack(unique_ptr<Armas>& arma) {
     if (ArmasMagicas* casteada = dynamic_cast<ArmasMagicas*>(arma.get())){
-        int h = arma->habilidad();
-        int d = arma->definitiva();
-        delete(casteada);
+        int h = casteada->habilidad();
+        int d = casteada->definitiva();
         return h + d;
     }
     else {
@@ -175,6 +170,7 @@ void Nigromante :: increaseDefense() {
 }
 
 int Nigromante :: tanqueo(Armas& arma, int daño) {
+    if (daño == 0) return 0;
     if (dynamic_cast<ArmasMagicas*>(&arma)) daño -= resistencia_magica * 0.05;
     else daño -= armadura * 0.1;
     return daño;

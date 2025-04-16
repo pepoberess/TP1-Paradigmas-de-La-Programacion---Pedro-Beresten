@@ -31,6 +31,6 @@ void ArmasCombate ::  subirDesgaste() {desgaste ++;}
 void ArmasCombate ::  recargarFuria(int suma_furia) {
     if (furia < 100 - suma_furia) furia += suma_furia; 
 
-    else cout << "El" << nombre << "ya está al máximo de furia" << endl;
+    else cout << "El " << nombre << " ya está al máximo de furia" << endl;
 }
 

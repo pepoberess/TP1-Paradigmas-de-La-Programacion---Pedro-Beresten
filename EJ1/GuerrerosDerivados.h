@@ -5,7 +5,7 @@
 class Barbaro : public Guerreros {
 public:
     Barbaro(unique_ptr<Armas> arma = nullptr, unique_ptr<Armas> arma2 = nullptr) 
-    : Guerreros("Bárbaro", 1800, 60, 30, 1.4, move(arma), move(arma2)) {}
+    : Guerreros("Bárbaro", 500, 60, 30, 1.4, move(arma), move(arma2)) {}
 
     void autoHealing() override;
     void recargaEnergia(unique_ptr<Armas>& arma) override;
@@ -17,7 +17,7 @@ public:
 class Paladin : public Guerreros {
 public:
     Paladin(unique_ptr<Armas> arma = nullptr, unique_ptr<Armas> arma2 = nullptr) 
-    : Guerreros("Paladín", 1600, 90, 80, 1.2, move(arma), move(arma2)) {}
+    : Guerreros("Paladín", 650, 90, 80, 1.2, move(arma), move(arma2)) {}
 
     void autoHealing() override;
     void recargaEnergia(unique_ptr<Armas>& arma) override;
@@ -29,7 +29,7 @@ public:
 class Caballero : public Guerreros {
 public:
     Caballero(unique_ptr<Armas> arma = nullptr, unique_ptr<Armas> arma2 = nullptr) 
-    : Guerreros("Caballero", 1700, 85, 60, 1.3, move(arma), move(arma2)) {}
+    : Guerreros("Caballero", 550, 85, 60, 1.3, move(arma), move(arma2)) {}
 
     void autoHealing() override;
     void recargaEnergia(unique_ptr<Armas>& arma) override;
@@ -41,7 +41,7 @@ public:
 class Mercenario : public Guerreros {
 public:
     Mercenario(unique_ptr<Armas> arma = nullptr, unique_ptr<Armas> arma2 = nullptr) 
-    : Guerreros("Mercenario", 1550, 70, 50, 1.7, move(arma), move(arma2)) {}
+    : Guerreros("Mercenario", 450, 70, 50, 1.7, move(arma), move(arma2)) {}
 
     void autoHealing() override;
     void recargaEnergia(unique_ptr<Armas>& arma) override;
@@ -53,7 +53,7 @@ public:
 class Gladiador : public Guerreros {
 public:
     Gladiador(unique_ptr<Armas> arma = nullptr, unique_ptr<Armas> arma2 = nullptr) 
-    : Guerreros("Gladiador", 1650, 75, 40, 1.5, move(arma), move(arma2)) {}
+    : Guerreros("Gladiador", 560, 75, 40, 1.5, move(arma), move(arma2)) {}
 
     void autoHealing() override;
     void recargaEnergia(unique_ptr<Armas>& arma) override;
